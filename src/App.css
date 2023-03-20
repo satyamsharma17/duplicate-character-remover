@@ -62,10 +62,6 @@ input:focus {
   border: 1px solid black;
 }
 
-/* ::selection {
-  background: #ffc8ff;
-} */
-
 .delete-button {
   margin: 0 auto;
   padding: 10px;
@@ -74,7 +70,6 @@ input:focus {
   font-family: "Nunito";
   transition: 0.2s all ease-in-out;
   outline: none;
-  /* border-radius: 0px; */
   border: 1px solid black;
   box-shadow: 3px 3px 1px 1px #95a4ff, 3px 3px 1px 2px black;
 }
@@ -118,5 +113,5 @@ input:focus {
 .char,
 .strings,
 .success {
-  padding: 10px;
+  padding: 1rem;
 }

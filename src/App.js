@@ -4,9 +4,12 @@ import './App.css';
 function App() {
     const [inputValue, setInputValue] = useState('');
     const [newString, setNewString] = useState('');
+    const [oldstring, setOldString]= useState('');
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
+        setOldString(event.target.value);
+       
     };
 
     const handleFormSubmit = (event) => {
@@ -15,6 +18,8 @@ function App() {
             alert('Please enter a non-empty value!');
         } else {
             setNewString(inputValue.trim());
+            setInputValue('');
+
         }
     };
 
@@ -89,10 +94,10 @@ function App() {
 
         return (
             <>
-            <h2 className='card-title'>Cards:</h2>
-            <div className='cards'>
-                {cards}
-            </div>
+                <h2 className='card-title'>Cards:</h2>
+                <div className='cards'>
+                    {cards}
+                </div>
             </>
         );
     };
@@ -111,9 +116,11 @@ function App() {
     const renderScreen2 = () => {
         return (
             <div className='screenTwo'>
-                <button className='back-button' onClick={() => setNewString('')}>Back</button>
+                <button className='back-button' onClick={() => {
+                    setNewString('');
+                }}>Back</button>
                 <div className='strings'>
-                    <h2 className='original-string'>Original String: {inputValue}</h2>
+                    <h2 className='original-string'>Original String: {oldstring}</h2>
                     <h2 className='new-string'>New String: {newString}</h2>
                     {renderCards()}
                 </div>

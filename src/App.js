@@ -34,7 +34,7 @@ function App() {
 
     const renderCards = () => {
         const charCounts = {};
-        const charColors = {};
+        const charColors = {}; // new object to hold mapping of characters to colors
         for (let i = 0; i < newString.length; i++) {
             const char = newString[i];
             if (!charCounts[char]) {
@@ -43,15 +43,6 @@ function App() {
             } else {
                 charCounts[char]++;
             }
-        }
-
-        if (Object.values(charCounts).every(count => count === 1)) {
-            return (
-                <div>
-                    <h2>Success!</h2>
-                    <p>Every character in the string is unique.</p>
-                </div>
-            );
         }
 
         const cards = [];
@@ -63,13 +54,10 @@ function App() {
                         className='card'
                         key={i}
                         style={{
-                            display: 'inline-block',
-                            padding: '10px',
-                            margin: '10px',
                             backgroundColor: charColors[char], // use the assigned color for this character
                         }}
                     >
-                        <button className='delete-btn' onClick={() => handleDelete(char, i)}>X</button>
+                        <button className='delete-button' onClick={() => handleDelete(char, i)}>X</button>
                         <span className='char'>{char}</span>
                     </div>
                 );
@@ -80,55 +68,55 @@ function App() {
                         className='card'
                         key={i}
                         style={{
-                            display: 'inline-block',
-                            padding: '10px',
-                            margin: '10px',
                             backgroundColor: charColors[char],
                         }}
                     >
-                        <button className='delete-btn' onClick={() => handleDelete(char, i)}>X</button>
+                        <button className='delete-button' onClick={() => handleDelete(char, i)}>X</button>
                         <span className='char'>{char}</span>
                     </div>
                 );
             }
         }
 
-        if (cards.length === 0) {
+        if (Object.values(charCounts).every(count => count === 1)) {
             return (
                 <div className='success'>
-                    <h2 className='success-msg'>Success!</h2>
-                    <p>No characters with more than one instance found.</p>
+                    <h2>Success!</h2>
+                    <p>Every character in the string is unique.</p>
                 </div>
             );
         }
 
         return (
+            <>
+            <h2 className='card-title'>Cards:</h2>
             <div className='cards'>
-                <h2 className='card-title'>Cards:</h2>
                 {cards}
             </div>
+            </>
         );
     };
 
     const renderScreen1 = () => {
         return (
-            <form onSubmit={handleFormSubmit}>
-                <label>
-                    Enter a string:
-                    <input type="text" value={inputValue} onChange={handleInputChange} />
-                </label>
-                <button className='submit-btn' type="submit">Submit</button>
-            </form>
+            <div className='screenOne'>
+                <form onSubmit={handleFormSubmit}>
+                    <input type="text" placeholder='Enter a string:' value={inputValue} onChange={handleInputChange} />
+                    <button className='submit-button' type="submit">Submit</button>
+                </form>
+            </div>
         );
     };
 
     const renderScreen2 = () => {
         return (
-            <div className='container'>
-                <button className='back-btn' onClick={() => setNewString('')}>Back</button>
-                <h2 className='original-str'>Original String: {inputValue}</h2>
-                <h2 className='new-str'>New String: {newString}</h2>
-                {renderCards()}
+            <div className='screenTwo'>
+                <button className='back-button' onClick={() => setNewString('')}>Back</button>
+                <div className='strings'>
+                    <h2 className='original-string'>Original String: {inputValue}</h2>
+                    <h2 className='new-string'>New String: {newString}</h2>
+                    {renderCards()}
+                </div>
             </div>
         );
     };

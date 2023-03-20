@@ -18,10 +18,10 @@ function App() {
         }
     };
 
-    const handleDelete = (charOne, index) => {
+    const handleDelete = (char, index) => {
         var filteredString = "";
         for (let i = 0; i < newString.length; i++) {
-            if (newString[i] == charOne) {
+            if (newString[i] == char) {
                 if (i == index) {
                     filteredString += newString[i];
                 }

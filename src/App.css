@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&family=PT+Sans:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&family=PT+Sans:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-  background:#FFF7AF;
+  background: #fff7af;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -67,13 +67,14 @@ input:focus {
 } */
 
 .delete-button {
-  display: block;
   margin: 0 auto;
   padding: 10px;
   background: #ffa580;
   letter-spacing: 2px;
+  font-family: "Nunito";
   transition: 0.2s all ease-in-out;
   outline: none;
+  /* border-radius: 0px; */
   border: 1px solid black;
   box-shadow: 3px 3px 1px 1px #95a4ff, 3px 3px 1px 2px black;
 }
@@ -106,10 +107,16 @@ input:focus {
 .card {
   display: inline-block;
   padding: 10px;
-  border-radius: 10px;
   margin: 10px;
+  border: 1px solid black;
+  box-shadow: 3px 3px 1px 1px #95a4ff, 3px 3px 1px 2px black;
 }
 
-.original-string, .new-string, .card-title, .char, .strings, .success {
-    padding: 10px;
+.original-string,
+.new-string,
+.card-title,
+.char,
+.strings,
+.success {
+  padding: 10px;
 }
